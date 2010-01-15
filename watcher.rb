@@ -90,6 +90,6 @@ end
 
 # Main
 if __FILE__ == $0
-  bot = IRCFileBot.new "wina.ugent.be", "ZeusFileBot", "#zeus", 6666, "/tmp"
+  bot = IRCFileBot.new "wina.ugent.be", "ZeusFileBot", "#zeus", 6666, "/srv/ftp"
   bot.run
 end
