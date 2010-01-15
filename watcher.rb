@@ -75,7 +75,12 @@ class IRCFileBot
     unless files.empty?
       @socket.puts pipe "JOIN #{@channel}"
       sleep 1
-      @socket.puts pipe "PRIVMSG #{@channel} :#{files.join ", "} were added"
+      if files.length > 1
+        msg = "\"#{files[0..-2].join "\", \""}\" and \"#{files[-1]}\" were added"
+      else
+        msg = "\"#{files[-1]}\" was added"
+      end
+      @socket.puts pipe "PRIVMSG #{@channel} :Just now, #{msg}."
       sleep 1
       @socket.puts pipe "PART #{@channel}"
     end
